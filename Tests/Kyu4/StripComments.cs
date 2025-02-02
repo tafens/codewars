@@ -21,13 +21,13 @@
 
 
 using Kata;
-using Kata.Kyu3;
+using Kata.Kyu4;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
 namespace Tests
 {
-    namespace Kyu3
+    namespace Kyu4
     {
         [TestClass]
         public class StripComments
