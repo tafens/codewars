@@ -38,6 +38,11 @@ namespace Tests
             }
         }
 
+        public static void AssertDoublesEqual(double correct, double within, double result) {
+            if(Math.Abs(correct-result)>within) { Assert.Fail($"{result} != {correct} +/- {within}"); }
+        }
+
+
         private static string Stringify(object obj) {
             if(obj is int[] array) { return string.Concat("[", string.Join(",", array), "]"); }
             return "";

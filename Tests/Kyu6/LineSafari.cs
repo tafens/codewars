@@ -16,41 +16,41 @@
 //-------------------------------------------------------------------------------------------------
 
 
-// Kata: "Strip Comments" by jhoffner
+// Kata: "Line Safari - Point distance to a line" by dinglemouse
 // UNIT TESTS
 
 
 using Kata;
-using Kata.Kyu4;
+using Kata.Kyu6;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
 namespace Tests
 {
-    namespace Kyu4
+    namespace Kyu6
     {
         [TestClass]
-        public class StripComments
+        public class LineSafari
         {
             [TestMethod]
             public void Test1() {
-                string correct="apples, pears\ngrapes\nbananas";
-                string result=Kata.Kyu4.StripComments.StripTheComments("apples, pears # and bananas\ngrapes\nbananas !apples", new string[] { "#", "!" });
-                AssertionHelpers.AssertStringsEqual(correct, result);
+                double correct=15d;
+                double result=Kata.Kyu6.LineSafari.DistanceFromLine(a:(10, 10), b:(30, 10), c:(20, 25));
+                AssertionHelpers.AssertDoublesEqual(correct, 0.001, result);
             }
 
             [TestMethod]
-            public void Test2() {
-                string correct="a\nc\nd";
-                string result=Kata.Kyu4.StripComments.StripTheComments("a #b\nc\nd $e f g", new string[] { "#", "$" });
-                AssertionHelpers.AssertStringsEqual(correct, result);
+            public void Test2AllInLine() {
+                double correct=0d;
+                double result=Kata.Kyu6.LineSafari.DistanceFromLine(a:(10, 10), b:(70, 70), c:(40, 40));
+                AssertionHelpers.AssertDoublesEqual(correct, 0.001, result);
             }
 
             [TestMethod]
-            public void Test3() {
-                string correct="";
-                string result=Kata.Kyu4.StripComments.StripTheComments("a", new string[] { "a" });
-                AssertionHelpers.AssertStringsEqual(correct, result);
+            public void Test3AandBsame() {
+                double correct=1.4142136d; // sqrt(2)
+                double result=Kata.Kyu6.LineSafari.DistanceFromLine(a:(1, 1), b:(1, 1), c:(2, 2));
+                AssertionHelpers.AssertDoublesEqual(correct, 0.001, result);
             }
         }
     }
